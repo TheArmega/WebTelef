@@ -1,33 +1,84 @@
 import React from 'react'
 import { TableData } from './TableData'
 import {useFetchData} from '../hooks/useFetchData'
+import { NavLink } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-export const TableGrid = ({days, routes}) => {
+export const TableGrid = () => {
 
-    const {data_1} = useFetchData(routes[0]);
-    const {data_2} = useFetchData(routes[1]);
-    const {data_3} = useFetchData(routes[2]);
-    const {data_4} = useFetchData(routes[3]);
+    const days = [1, 2, 3, 4];
+
+    const {data_1} = useFetchData(0);
+    const {data_2} = useFetchData(1);
+    const {data_3} = useFetchData(2);
+    const {data_4} = useFetchData(3);
 
     return (
         <table className="table table-borderless align-middle">
             <thead>
 
                 <tr>
-                    <th className="h1 h1-custom">
-                        Tiempo Medio Amplicaciones
+                    <th className="h1">
+                        <NavLink 
+                            activeClassName="active"
+                            className="h1-custom"
+                            exact
+                            to={{
+                                pathname:'/graphics',
+                                aboutProps: {
+                                    data: data_1
+                                }
+                            }}
+                        > Tiempo Medio Amplicaciones
+                        </NavLink>
                     </th>
-                    <th className="h1 h1-custom">
-                        Tiempo Medio Obra Nueva
+
+                    <th className="h1">
+                        <NavLink 
+                            activeClassName="active"
+                            className="h1-custom" 
+                            exact
+                            to={{
+                                pathname:'/graphics',
+                                aboutProps: {
+                                    data: data_2
+                                }
+                            }}
+                        > Tiempo Medio Obra Nueva
+                        </NavLink>
                     </th>
-                    <th className="h1 h1-custom">
-                        Percentil 95 Amplicaciones
+
+                    <th className="h1">
+                        <NavLink 
+                            activeClassName="active"
+                            className="h1-custom" 
+                            exact
+                            to={{
+                                pathname:'/graphics',
+                                aboutProps: {
+                                    data: data_3
+                                }
+                            }}
+                        > Percentil 95 Amplicaciones
+                        </NavLink>
                     </th>
-                    <th className="h1 h1-custom">
-                        Percentil 95 Obra Nueva
+
+                    <th className="h1">
+                        <NavLink 
+                            activeClassName="active"
+                            className="h1-custom"  
+                            exact
+                            to={{
+                                pathname:'/graphics',
+                                aboutProps: {
+                                    data: data_4
+                                }
+                            }}
+                        > Percentil 95 Obra Nueva
+                        </NavLink>
                     </th>
+                    
                 </tr>
 
                 <tr>

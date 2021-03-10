@@ -1,5 +1,13 @@
 export const getData = async(route) => {
-    const url = route;
+
+    const urls = [
+        '',
+        '',
+        '',
+        ''
+    ];
+
+    const url = urls[route];
     const resp = await fetch(url);
     const { data } = await resp.json();
 
