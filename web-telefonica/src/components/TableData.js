@@ -12,7 +12,7 @@ export const TableData = ({data, type}) => {
             
             <tbody>
                 <tr>
-                    <th><a className="a-custom" href="!#">Hola</a></th>
+                    <th><a className="a-custom" href="" download>Hola</a></th>
                     <th>Adiós</th>
                 </tr>
                 {/* {
