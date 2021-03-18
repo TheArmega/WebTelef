@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {getData} from '../helpers/getData'
 
-export const useFetchData = (route) => {
+export const useFetchData = () => {
 
     const [state, setState] = useState({
         data: []
@@ -9,7 +9,7 @@ export const useFetchData = (route) => {
 
     useEffect(() => {
     
-        getData(route)
+        getData()
             .then(datos => {
                 setTimeout(() => {
                     setState({

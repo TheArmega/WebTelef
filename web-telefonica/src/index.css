@@ -1,25 +1,22 @@
 .body-custom {
-  background-color: #70818C
+  background-color: #70818C;
+  padding-top: 110px;
 }
 
 .navbar-custom {
   background-color: #003141;
-}
-
-.navbar-gradient-custom {
-  /* background-image: linear-gradient(15deg, #003141 0%, #5c6972 100%); */
+  height: 100px;
 }
 
 .h1-custom {
   color: #003141;
+  font-size: 30px;
 }
+
 
 .h2-custom {
   color: black;
-}
-
-.table-custom {
-  background-color: #70818C;
+  font-size: 25px;
 }
 
 .b-custom {
@@ -28,4 +25,25 @@
 
 .a-custom {
   color: rgb(3, 36, 167);
+  font-size: 20px;
+}
+
+.th-custom {
+  color: black;
+  font-size: 20px;
+}
+
+.tr-custom {
+  background-color: #00314143;
+}
+
+.td-custom {
+  color: black;
+  font-size: 20px;
+}
+
+.p-custom {
+  color: white;
+  font-size: 20px;
+  margin-right: 50px;
 }

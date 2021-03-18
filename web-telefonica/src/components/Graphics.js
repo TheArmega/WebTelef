@@ -1,43 +1,64 @@
 import React from 'react'
-import { HorizontalBar } from "react-chartjs-2"
+import { Line } from "react-chartjs-2"
+import { Banner } from './Banner';
 
-const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    fontColor: '#666',
-    fontSize: 200,
+
+export const Graphics = (_data) => {
+  
+  try{
+  const datos = _data.location.aboutProps;
+
+  const label = datos.data.title;
+
+  const months = [];
+  const values = [];
+
+  datos.data.data.map(row =>(
+
+    months.push(row.month),
+    values.push(row.value)
+
+  ))
+
+  const data = {
+    labels: months,
     datasets: [
       {
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 1, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
+        label: label,
+        fontColor: "black",
+        data: values,
+        fill: false,
+        borderColor: "rgba(255, 159, 64, 1)",
+        pointColor: 'rgba(220,220,220,1)',
+        borderWidth: 5,
       },
     ],
   }
   
   const options = {
+    options: {
+      legend: {
+        labels: {
+            fontColor: "blue",
+            fontSize: 45
+        }
+    },
+      layout: {
+          padding: {
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0
+          }
+      }
+  },
     scales: {
       yAxes: [
         {
           ticks: {
             beginAtZero: true,
             fontColor: 'black',
-            fontSize: 18
+            fontSize: 20,
           },
         },
       ],
@@ -46,7 +67,7 @@ const data = {
           ticks: {
             beginAtZero: true,
             fontColor: 'black',
-            fontSize: 18
+            fontSize: 22
           },
         },
       ],
@@ -54,13 +75,18 @@ const data = {
     
   }
 
-export const Graphics = (_data) => {
-
-  const datos = _data.location.aboutProps; 
 
     return (
       <>
-        <HorizontalBar data={data} options={options} />
+        <Line data={data} options={options} />
       </>
     )
+
+  }
+  catch(error) {
+    return (
+      <Banner />
+    )
+    
+  }
 }
